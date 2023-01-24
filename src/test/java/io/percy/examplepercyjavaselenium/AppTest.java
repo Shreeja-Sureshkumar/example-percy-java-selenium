@@ -43,7 +43,7 @@ public class AppTest {
         serverExecutor = Executors.newFixedThreadPool(1);
         server = App.startServer(serverExecutor);
         FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(true);
+        //options.setHeadless(true);
         //driver = new FirefoxDriver(options);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
