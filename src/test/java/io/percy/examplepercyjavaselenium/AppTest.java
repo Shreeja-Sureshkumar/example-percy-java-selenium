@@ -42,7 +42,7 @@ public class AppTest {
         // Create a threadpool with 1 thread and run our server on it.
         serverExecutor = Executors.newFixedThreadPool(1);
         server = App.startServer(serverExecutor);
-        FirefoxOptions options = new FirefoxOptions();
+        //FirefoxOptions options = new FirefoxOptions();
         //options.setHeadless(true);
         //driver = new FirefoxDriver(options);
         driver = new ChromeDriver();
