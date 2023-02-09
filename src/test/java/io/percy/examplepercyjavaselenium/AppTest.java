@@ -28,7 +28,7 @@ import io.percy.selenium.Percy;
  * Unit test for example App.
  */
 public class AppTest {
-    private static final String TEST_URL = "http://localhost:8000";
+    private static final String TEST_URL = "http://localhost:4502/content/wknd/us/en/faqs.html?wcmmode=disabled";
     private static ExecutorService serverExecutor;
     private static HttpServer server;
     private static WebDriver driver;
@@ -62,14 +62,19 @@ public class AppTest {
     @Test
     public void loadsHomePage() {
         driver.get(TEST_URL);
-        WebElement element = driver.findElement(By.className("todoapp"));
-        assertNotNull(element);
+        WebElement element = driver.findElement(By.xpath("//*[@id='username']"));
+        element.sendKeys("admin");
+        WebElement element1 = driver.findElement(By.xpath("//*[@id='password']"));
+        element1.sendKeys("admin");
+        WebElement submit = driver.findElement(By.xpath("//*[@id='submit-button']"));
+        submit.click();
+        //assertNotNull(element);
 
         // Take a Percy snapshot.
         percy.snapshot("Home Page");
     }
 
-    @Test
+    /*@Test
     public void acceptsANewTodo() {
         driver.get(TEST_URL);
 
@@ -108,5 +113,5 @@ public class AppTest {
 
         // Take a Percy snapshot specifying a minimum height.
         percy.snapshot("Checked off todo", null, 2000);
-    }
+    }*/
 }
